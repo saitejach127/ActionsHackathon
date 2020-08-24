@@ -3,6 +3,7 @@ var admin = require("firebase-admin");
 require("dotenv").config();
 var app = express();
 var bodyParser = require("body-parser");
+const port = process.env.PORT || 3000;
 
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
@@ -47,6 +48,6 @@ app.post("/rewards", async (req, res) => {
   res.json({ success: true });
 });
 
-app.listen(process.env.PORT || 3000, () => {
-  console.log("Runing on 3000");
+app.listen(port, () => {
+  console.log(`Runing on ${port}`);
 });
