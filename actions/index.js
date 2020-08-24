@@ -4,9 +4,8 @@ const axios = require('axios');
 
 try {
     const payload = github.context.payload;
-    console.log(payload.commits);
     payload.commits.forEach((commit) => {
-        console.log(commit.committer);
+        console.log(commit.committer.username);
     })
 } catch (e) {
     core.setFailed(e.message);
