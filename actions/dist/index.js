@@ -6191,6 +6191,7 @@ const axios = __webpack_require__(366);
 
 try {
     const payload = github.context.payload;
+    console.log(payload);
     payload.commits.forEach((commit) => {
         var username = commit.commiter.username;
         axios.default.post('https://reward-keeper.herokuapp.com/rewards/',{
