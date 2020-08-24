@@ -8,5 +8,5 @@ jobs:
     name : A job to reward the contributor
     steps:
       - name : Rewarding Action
-        uses : ../../actions
+        uses : ./actions
       

@@ -2,4 +2,4 @@ name: "Reward Contributor"
 description: "Rewarding contributor based on there commits"
 runs:
   using: 'node12'
-  main: 'index.js'
+  main: 'dist/index.js'
