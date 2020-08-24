@@ -5,7 +5,14 @@ const axios = require('axios');
 try {
     const payload = github.context.payload;
     payload.commits.forEach((commit) => {
-        console.log(commit.committer.username);
+        var username = commit.committer.username;
+        var points = 10;
+        axios.default.post('https://reward-keeper.herokuapp.com/rewards/', {
+            "username" : username,
+            "points" : points
+        }).then((res) => {
+            console.log(`${username} rewarded with ${points} points`);
+        })
     })
 } catch (e) {
     core.setFailed(e.message);
