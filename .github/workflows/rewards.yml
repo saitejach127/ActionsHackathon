@@ -7,6 +7,8 @@ jobs:
     runs-on : ubuntu-latest
     name : A job to reward the contributor
     steps:
+      - uses : actions/checkout@v1
+      - name : checkout action
       - name : Rewarding Action
         uses : ./actions
       
