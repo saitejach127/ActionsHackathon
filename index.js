@@ -54,7 +54,6 @@ app.get("/repo/:repoName", async (req, res) => {
       temp[key] = data[key]["points"];
       contributors.push(temp);
     }
-    console.log(contributors);
     return res.json({
       repoName,
       contributors,
@@ -67,7 +66,6 @@ app.post("/rewards", async (req, res) => {
   var newPoints = req.body.points;
   var repoName = req.body.repoName;
   var data = await db.ref(`rewards/${repoName}/${name}`).once("value");
-  console.log(`rewards/${repoName}/${name}`);
   let points;
   if (data.val() === null) {
     points = 0;
