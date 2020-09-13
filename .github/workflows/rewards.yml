@@ -10,5 +10,5 @@ jobs:
       - name : Checking out 
         uses : actions/checkout@v1
       - name : Rewarding Action
-        uses : saitejach127/rewards@v2
+        uses : saitejach127/rewards@v2.1
       
