@@ -27,13 +27,13 @@ app.get("/user/:username", async (req, res) => {
     return res.json({ name: name, points: 0 });
   } else {
     data = data.val();
-    var repos = []
-    for(const key of Object.keys(data)){
-      if(data[key][name]){
+    var repos = [];
+    for (const key of Object.keys(data)) {
+      if (data[key][name]) {
         repos.push({
           repo: key,
-          points: data[key][name]["points"]
-        })
+          points: data[key][name]["points"],
+        });
       }
     }
     return res.json({ name: name, contributions: repos });
@@ -43,21 +43,21 @@ app.get("/user/:username", async (req, res) => {
 app.get("/repo/:repoName", async (req, res) => {
   var repoName = req.params.repoName;
   var data = await db.ref("rewards/" + repoName).once("value");
-  var contributors = [];
-  data = data.val();
-  console.log(data);
-  for (const key of Object.keys(data)){
-    var temp = {};
-    temp[key] = data[key]["points"]
-    contributors.push(temp);
-  }
-  console.log(contributors);
-  if (data === null) {
+  if (data.val() === null) {
     return res.json({ repoName: repoName, result: "No contributors yet" });
   } else {
+    var contributors = [];
+    data = data.val();
+    console.log(data);
+    for (const key of Object.keys(data)) {
+      var temp = {};
+      temp[key] = data[key]["points"];
+      contributors.push(temp);
+    }
+    console.log(contributors);
     return res.json({
       repoName,
-      contributors
+      contributors,
     });
   }
 });
