@@ -1,2 +1,2 @@
 # ActionsHackathon
-Code for Actions Hackathon
+Code for Reward keeping points of Contributors
