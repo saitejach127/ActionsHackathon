@@ -1,5 +1,4 @@
 node_modules
 .env
-serviceAccount.json
 actions/node_modules
 run.sh
